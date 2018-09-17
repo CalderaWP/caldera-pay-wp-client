@@ -14,9 +14,9 @@ NOTE: Probably only going to work if your REST API is CalderaForms.com's REST AP
 Requires git and Composer and npm and Yarn
 
 * Clone From Github:
-    * `git clone git@github.com:CalderaWP/Caldera-Forms.git`
+    - `git clone git@github.com:CalderaWP/Caldera-Forms.git`
 * Install or update everything
-    * `bash install.sh`
+    - `bash install.sh`
 
 ## Development
 
@@ -30,8 +30,11 @@ Requires git and Composer and npm and Yarn
 
 #### Testing
 * Run PHP Tests, Lints And Sniffs
-    ** `composer tests`
+    - `composer tests`
 
 * Run Unit Tests:
-    ** `composer test:unit`
+    - `composer test:unit`
 
+## Release
+*To create a ZIP file without development scripts and tests:
+    - `composer zip`

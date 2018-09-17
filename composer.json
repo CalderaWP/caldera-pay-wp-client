@@ -55,6 +55,7 @@
         "phpunit-v": "phpunit --version",
         "sniffs" : "phpcs php/ && phpcs Tests/",
         "fixes" : "phpcbf php/ && phpcbf Tests/",
-        "lints" : "parallel-lint ./php  --blame --exclude vendor && parallel-lint ./Tests  --blame --exclude vendor"
+        "lints" : "parallel-lint ./php  --blame --exclude vendor && parallel-lint ./Tests  --blame --exclude vendor",
+        "zip": "bash ./bin/create-zip.sh"
     }
 }
