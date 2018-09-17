@@ -19,8 +19,7 @@
         "php": ">=5.5",
         "ext-curl": "*",
         "ext-json": "*",
-        "ext-mbstring": "*",
-        "guzzlehttp/guzzle": "^6.2"
+        "ext-mbstring": "*"
     },
     "autoload": {
         "psr-4": { "calderaPayQualpayPaymentGateway\\" : "lib/" }
