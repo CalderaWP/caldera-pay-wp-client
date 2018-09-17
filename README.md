@@ -18,4 +18,20 @@ Requires git and Composer and npm and Yarn
 * Install or update everything
     * `bash install.sh`
 
+## Development
+
+### JavaScript
+* All JavaScript is developed in `/src`. 
+* JavaScript is compiled to `/build`.
+* Most of the code lives in [@caldera-labs/caldera-pay-js](https://github.com/CalderaWP/caldera-pay-js/)
+
+### PHP
+* All PHP is developed in `/php`
+
+#### Testing
+* Run PHP Tests, Lints And Sniffs
+    ** `composer tests`
+
+* Run Unit Tests:
+    ** `composer test:unit`
 
