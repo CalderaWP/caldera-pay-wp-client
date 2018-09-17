@@ -35,7 +35,6 @@
             "react-wp-scripts.php",
             "qualpay-client/index.php"
         ]
-
     },
     "autoload-dev": {
         "psr-4": {

@@ -10,6 +10,7 @@ if [ -f composer.lock ]; then
     composer update
 fi
 
+yarn
 
 
 # Payment gateway client
