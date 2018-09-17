@@ -1,0 +1,45 @@
+{
+    "name": "calderawp/caldera-pay-wp-client",
+    "license": "GPL-2.0",
+    "authors": [
+        {
+            "name": "Josh Pollock",
+            "email": "josh@calderawp.com"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "git",
+            "url": "https://github.com/CalderaWP/caldera-interop"
+        },
+        {
+            "type": "git",
+            "url": "https://github.com/CalderaWP/caldera-forms"
+        },
+        {
+            "type": "git",
+            "url": "https://github.com/CalderaWP/caldera-ghost-runner"
+        }
+    ],
+    "minimum-stability" : "dev",
+    "require": {
+        "php": "^7.1",
+        "calderawp/caldera-containers": "^0.2.0",
+        "calderawp/caldera-interop": "dev-vast-simplify"
+    },
+    "autoload": {
+        "psr-4": {
+            "calderawp\\CalderaPay\\WpClient\\": "php"
+        },
+        "files": [
+            "react-wp-scripts.php",
+            "qualpay-client/index.php"
+        ]
+
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "calderawp\\CalderaPay\\WpClient\\Tests\\": "tests/"
+        }
+    }
+}
