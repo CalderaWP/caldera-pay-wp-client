@@ -32,8 +32,6 @@ matrix:
       env: WP_VERSION=latest
     - php: 7.1
       env: WP_VERSION=latest
-    - php: 7.2
-      env: WP_VERSION=trunk
 
 # Setup environment
 before_script:
