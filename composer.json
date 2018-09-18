@@ -57,7 +57,8 @@
         "squizlabs/php_codesniffer": "^3.2",
         "jakub-onderka/php-parallel-lint": "^1.0",
         "easydigitaldownloads/easy-digital-downloads": "dev-release/3.0",
-        "wpackagist-plugin/gutenberg":"*"
+        "wpackagist-plugin/gutenberg":"*",
+        "johnpbloch/wordpress" : "*"
     },
     "scripts" : {
         "tests" : "composer fixes && composer sniffs && composer test:unit",
