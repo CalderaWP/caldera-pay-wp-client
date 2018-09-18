@@ -56,6 +56,12 @@
         "sniffs" : "phpcs php/ && phpcs Tests/",
         "fixes" : "phpcbf php/ && phpcbf Tests/",
         "lints" : "parallel-lint ./php  --blame --exclude vendor && parallel-lint ./Tests  --blame --exclude vendor",
-        "zip": "bash ./bin/create-zip.sh"
+        "zip": "bash ./bin/create-zip.sh",
+        "wp:install": "bash ./bin/install-docker.sh && composer wp:config",
+        "wp:activate": "bash ./bin/activate-plugin.sh",
+        "wp:config": "docker-compose run --rm cli wp rewrite structure '/%postname%/'",
+        "wp:start": "docker-compose up -d",
+        "wp:tests": "docker-compose run --rm wordpress_phpunit phpunit --configuration phpunit-integration.xml.dist",
+        "wp:destroy": "docker-compose rm --stop --force"
     }
 }
