@@ -12,12 +12,14 @@ services:
     volumes:
       - wordpress:/var/www/html
       - .:/var/www/html/wp-content/plugins/caldera-pay-wp-client
+      - ./wp-content/plugins/easy-digital-downloads:/var/www/html/wp-content/plugins/easy-digital-downloads
 
   cli:
     image: wordpress:cli
     volumes:
       - wordpress:/var/www/html
       - .:/var/www/html/wp-content/plugins/caldera-pay-wp-client
+      - ./wp-content/plugins/easy-digital-downloads:/var/www/html/wp-content/plugins/easy-digital-downloads
 
   mysql:
     image: mysql:5.7

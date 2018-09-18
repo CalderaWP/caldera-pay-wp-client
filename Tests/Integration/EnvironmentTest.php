@@ -25,4 +25,12 @@ class EnvironmentTest extends IntegrationTestCase
 	    $this->assertTrue( is_numeric( $id ) );
 
     }
+
+    /**
+     * Make sure EDD is active
+     */
+    public function testEdd()
+    {
+        $this->assertTrue(function_exists( 'edd_get_download') );
+    }
 }
