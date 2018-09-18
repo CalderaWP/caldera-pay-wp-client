@@ -48,7 +48,7 @@ class Settings
      */
     public function getApiKey(): string
     {
-        return $this->apiKey;
+        return is_string($this->apiKey) ? $this->apiKey : '';
     }
 
     /**

@@ -29,6 +29,14 @@ class QualpaySettingsTest extends TestCase
         $this->assertSame( '12345', $settings->getApiKey() );
     }
 
+    /**
+     * @covers \calderawp\CalderaPay\WpClient\Qualpay\Settings::getApiKey()
+     */
+    public function testGetApiKeyDefault()
+    {
+        $settings = $this->qualpaySettingsFactory();
+        $this->assertSame( '', $settings->getApiKey() );
+    }
 
     /**
      * @covers \calderawp\CalderaPay\WpClient\Qualpay\Settings::setIsSandbox()

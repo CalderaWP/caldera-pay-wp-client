@@ -45,12 +45,16 @@ class CalderaPayWp extends \calderawp\CalderaContainers\Service\Container implem
 	public function getQualPayContainer(): Container
 	{
 		if( ! $this->qualpayContainer ){
-		    $defaults = apply_filters( 'calderaPay/qualpay/settings/defaults', [] );
+		    $defaults = apply_filters( 'calderaPay/qualpay/settings/defaults', [
+		        'apiKey' => ''
+            ] );
 		    $this->qualpayContainer = new Container(
 		        $this,
                 new Settings($defaults)
             );
         }
+
+        return $this->qualpayContainer;
 	}
 
 }
