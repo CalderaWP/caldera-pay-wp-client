@@ -8,7 +8,10 @@ use calderaPayQualpayPlatform\Api\EmbeddedFieldsApi;
 
 class Container
 {
-
+    /**
+     * @var Settings
+     */
+    private $settings;
 	 const OFFSET_API_CLIENT = 'client';
 	 const OFFSET_PLATFORM_CONFIG = 'platform-config';
 	 const OFFSET_PAYMENT_GATEWAY_CONFIG = 'pg-config';
@@ -30,12 +33,12 @@ class Container
 	/**
 	 * Container constructor.
 	 * @param \calderawp\CalderaContainers\Service\Container $container
-	 * @param string|null $securityKey
+	 * @param Settings $settings Qualpay settings
 	 */
-	public function __construct(\calderawp\CalderaContainers\Service\Container $container, string  $securityKey = null)
+	public function __construct(\calderawp\CalderaContainers\Service\Container $container, Settings $settings )
 	{
 		$this->container = $container;
-		$this->securityKey = $securityKey ? $securityKey : '05e1b282b91111e8b4480aaca8f8c8fa';
+		$this->securityKey = $settings->getApiKey();
 
 		$this->container->singleton(self::OFFSET_PLATFORM_CONFIG, function () {
 			$config = new \calderaPayQualpayPlatform\Configuration();
@@ -111,4 +114,16 @@ class Container
 	{
 		return $this->container->make(self::OFFSET_PLATFORM_CONFIG);
 	}
+
+
+    /**
+     * @return Settings
+     */
+    public function getSettings(){
+        if( ! $this->settings ){
+            $this->settings = new Settings();
+        }
+
+        return $this->settings;
+    }
 }
