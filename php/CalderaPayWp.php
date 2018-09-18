@@ -6,7 +6,7 @@ namespace calderawp\CalderaPay\WpClient;
 use calderawp\CalderaPay\WpClient\Contracts\CalderaPayContainerContract;
 use calderawp\CalderaPay\WpClient\EDD\PriceFinder;
 use calderawp\CalderaPay\WpClient\Contracts\FeatureImageFinderContract;
-use calderawp\CalderaPay\WpClient\QualPay\Container;
+use calderawp\CalderaPay\WpClient\Qualpay\Container;
 
 /**
  * Class CalderaPayWp

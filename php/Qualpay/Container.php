@@ -51,7 +51,7 @@ class Container
 			return $config;
 		});
 		$this->container->singleton(self::OFFSET_API_CLIENT, function () {
-			return new \GuzzleHttp\client();
+			return new \GuzzleHttp\Client();
 		});
 		$this->container->singleton(EmbeddedFieldsApi::class, function () {
 			return new EmbeddedFieldsApi(
