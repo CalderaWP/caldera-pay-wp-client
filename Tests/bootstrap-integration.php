@@ -23,6 +23,7 @@ function _manually_load_plugin()
 {
     require dirname(__FILE__, 2) . '/caldera-pay-wp-client.php';
     require dirname(__FILE__, 2) . '/wp-content/plugins/easy-digital-downloads/easy-digital-downloads.php';
+    require dirname(__FILE__, 2) . '/wp-content/plugins/gutenberg/gutenberg.php';
 }
 // Start up the WP testing environment.
 require $_tests_dir . '/includes/bootstrap.php';

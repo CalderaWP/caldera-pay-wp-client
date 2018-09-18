@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3ae4f6fe058a970ec240e3cf7dc8bb1d",
+    "content-hash": "9957d371d284ca5d3ed85e7eda63e3c9",
     "packages": [
         {
             "name": "calderawp/caldera-containers",
@@ -2476,6 +2476,27 @@
                 "validate"
             ],
             "time": "2018-05-29T14:25:02+00:00"
+        },
+        {
+            "name": "wpackagist-plugin/gutenberg",
+            "version": "dev-trunk",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/gutenberg/",
+                "reference": "trunk"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/gutenberg.zip?timestamp=1536945583",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/gutenberg/",
+            "time": "2018-09-14T17:19:43+00:00"
         }
     ],
     "aliases": [],

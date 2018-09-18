@@ -33,4 +33,14 @@ class EnvironmentTest extends IntegrationTestCase
     {
         $this->assertTrue(function_exists( 'edd_get_download') );
     }
+
+    /**
+     * Test Gutenberg is active
+     */
+    public function testGutes()
+    {
+
+        $this->assertTrue(function_exists( 'register_block_type') );
+
+    }
 }
