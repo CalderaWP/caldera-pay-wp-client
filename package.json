@@ -7,7 +7,7 @@
     "react-dom": "^16.5.0"
   },
   "dependencies": {
-    "@caldera-labs/caldera-pay-js": "^0.0.4",
+    "@caldera-labs/caldera-pay-js": "^0.0.5",
     "@wordpress/dom-ready": "^2.0.0",
     "react-wp-scripts": "0.2.0",
     "scriptloader": "^1.1.2"
