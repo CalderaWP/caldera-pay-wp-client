@@ -5,6 +5,7 @@ namespace calderawp\CalderaPay\WpClient\Contracts;
 
 use calderawp\CalderaPay\WpClient\EDD\PriceFinder;
 use calderawp\CalderaPay\WpClient\Contracts\FeatureImageFinderContract;
+use calderawp\CalderaPay\WpClient\Contracts\QualpayContainerContract;
 use calderawp\CalderaPay\WpClient\QualPay\Container;
 
 interface CalderaPayContainerContract
@@ -16,6 +17,5 @@ interface CalderaPayContainerContract
 
 	public function getApiNamespace() : string;
 
-
-	public function getQualPayContainer(): Container;
+	public function getQualPayContainer(): QualpayContainerContract;
 }

@@ -49,14 +49,10 @@ if( function_exists( 'add_action' )){
         },10,2
     );
 
-
-
-
-
-
+    /**
+     *
+     */
     do_action( 'calderaPay/init', $container, $hooks );
-
-
 
 }
 

@@ -8,6 +8,8 @@ use calderawp\CalderaPay\WpClient\EDD\PriceFinder;
 use calderawp\CalderaPay\WpClient\Contracts\FeatureImageFinderContract;
 use calderawp\CalderaPay\WpClient\Qualpay\Container;
 use calderawp\CalderaPay\WpClient\Qualpay\Settings;
+use calderawp\CalderaPay\WpClient\Contracts\QualpayContainerContract;
+
 
 /**
  * Class CalderaPayWp
@@ -18,7 +20,7 @@ class CalderaPayWp extends \calderawp\CalderaContainers\Service\Container implem
 {
 
     /**
-     * @var Container
+     * @var CalderaPayContainerContract|Container
      */
     private $qualpayContainer;
 
@@ -42,13 +44,13 @@ class CalderaPayWp extends \calderawp\CalderaContainers\Service\Container implem
 	}
 
 	/** @inheritdoc */
-	public function getQualPayContainer(): Container
+	public function getQualPayContainer(): QualpayContainerContract
 	{
 		if( ! $this->qualpayContainer ){
 		    $defaults = apply_filters( 'calderaPay/qualpay/settings/defaults', [
-		        'apiKey' => ''
+		        'apiKey' => '1eec65cbbc4e11e897bc0aaca8f8c8fa'//CalderaWP Sandbox test key
             ] );
-		    $this->qualpayContainer = new Container(
+		    $this->qualpayContainer = new \calderawp\CalderaPay\WpClient\Qualpay\Container(
 		        $this,
                 new Settings($defaults)
             );

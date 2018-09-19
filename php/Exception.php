@@ -19,6 +19,7 @@ class Exception extends \Exception
 
 	public function toResponse(array  $data = [], array  $headers = []): \WP_REST_Response
 	{
+	    $data = array_merge( $data, [ 'message' => $this->getMessage() ] );
 		return new Response($data, absint($this->getCode() ? $this->getCode() : 500), $headers);
 	}
 

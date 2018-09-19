@@ -60,24 +60,26 @@ abstract class TestCase extends FrameworkTestCase
 	}
 	//phpcs:enable
 
-	/**
-	 * @param string $id
-	 * @return FormEntity
-	 */
-	protected function formEntityFactory($id = '')
-	{
-		if (! $id) {
-			$id = uniqid('cf');
-		}
+    /**
+     * Assert that a property of an object has a given type
+     *
+     * @param object $object
+     * @param string $propertyName
+     * @param string $expectedType
+     */
+    protected function assertObjectPropertyType($object, string $propertyName, string $expectedType)
+    {
+        $this->assertSame($expectedType,get_class($this->getPropValueViaReflection($object, $propertyName)));
+    }
 
-		return (new FormEntity() )->setId($id);
-	}
 
-	/**
-	 * @return CalderaForms
-	 */
-	protected function calderaFormsFactory()
-	{
-		return new CalderaForms(new Container());
-	}
+    protected function getPropValueViaReflection( $object, string $propertyName )
+    {
+        $reflectionObject = new \ReflectionObject($object);
+        $reflectionProperty = $reflectionObject->getProperty($propertyName);
+        $reflectionProperty->setAccessible(true);
+
+        return $reflectionProperty->getValue($object);
+    }
+
 }

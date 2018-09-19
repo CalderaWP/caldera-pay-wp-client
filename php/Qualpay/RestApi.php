@@ -13,6 +13,8 @@ class RestApi extends CalderaPayWpBase implements AddsRoutes
 
 	public function addRoutes(string $nameSpace)
 	{
+	    $controller = new Controller($this->getContainer() );
+
 		$routeUri = 'pay/qualpay';
 		register_rest_route(
 			$nameSpace,
@@ -22,24 +24,21 @@ class RestApi extends CalderaPayWpBase implements AddsRoutes
 				'args' => [
 
 				],
-				'callback' => [$this,'getTransientKey']
+				'callback' => [$controller,'getTransientKey']
 			]
 		);
+
+        register_rest_route(
+            $nameSpace,
+            $routeUri,
+            [
+                'methods' => [ 'POST'],
+                'args' => $controller->fieldGroupsAsRestApiArgs(),
+                'callback' => [$controller,'createPayment']
+            ]
+        );
 	}
 
 
-	public function getTransientKey(\WP_REST_Request $request)
-	{
 
-		try {
-			$key = $this
-				->getContainer()
-				->getQualpayContainer()
-				->getTransientKey();
-		} catch (Exception $exception) {
-			return $exception->toResponse();
-		}
-
-		return new Response(['transientKey' => $key ]);
-	}
 }
