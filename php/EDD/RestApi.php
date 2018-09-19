@@ -7,6 +7,7 @@ use calderawp\CalderaPay\WpClient\CalderaPayWpBase;
 use calderawp\CalderaPay\WpClient\Contracts\CalderaPayContainerContract;
 use calderawp\CalderaPay\WpClient\FeaturedImageFinder;
 use calderawp\CalderaPay\WpClient\Contracts\AddsRoutes;
+use calderawp\CalderaPay\WpClient\RestApi\NonceCheck;
 
 class RestApi extends CalderaPayWpBase implements AddsRoutes
 {
@@ -14,7 +15,7 @@ class RestApi extends CalderaPayWpBase implements AddsRoutes
 	const QUERY_FOR_PRO = 'cf-pro';
 	const IS_CALDERA_PAY = 'calderaPay';
 	const FIELD = 'calderaPay';
-
+    const NONCE_FIELD = 'productNonce';
 
 	/**
 	 * Add the calderaPay field to REST API responses for EDD downloads
@@ -55,6 +56,7 @@ class RestApi extends CalderaPayWpBase implements AddsRoutes
 	public function addRoutes(string $nameSpace)
 	{
 		$routeUri = 'cart';
+		$nonceCheck = (new NonceCheck())->setNonceAction(self::NONCE_FIELD)->setNonceParamName( self::NONCE_FIELD );
 		register_rest_route(
 			$nameSpace,
 			$routeUri,
@@ -80,12 +82,14 @@ class RestApi extends CalderaPayWpBase implements AddsRoutes
 						edd_remove_from_cart($request->get_param('removeProduct'));
 					}
 					return new \WP_REST_Response(edd_get_cart_contents());
-				}
+				},
+                'permissions_callback' => [$nonceCheck, 'verifyRequest' ]
 			]
 		);
 
 		register_rest_route($nameSpace, $routeUri, [
 			'methods' => 'GET',
+            'permissions_callback' => [$nonceCheck, 'verifyRequest' ],
 			'callback' => function (\WP_REST_Request $request) {
 				return new \WP_REST_Response(edd_get_cart_contents());
 			}
